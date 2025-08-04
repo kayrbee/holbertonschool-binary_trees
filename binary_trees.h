@@ -23,6 +23,8 @@ typedef struct binary_tree_s bst_t;
 typedef struct binary_tree_s avl_t;
 /* Max binary heap */
 typedef struct binary_tree_s heap_t;
+/* testing function */
+void binary_tree_print(const binary_tree_t *);
 
 /* Function definitions for tasks 0 - 23 */
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
