@@ -7,26 +7,28 @@
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int left_p = 0, right_p = 0, d;
+	int ld, rd;
 
 	if (tree == NULL)
 		return (0);
 	if (tree->left == NULL && tree->right == NULL)
 		return (1);
-	d = depth(tree);
+	ld = depth(tree->left);
+	rd = depth(tree->right);
 
-	left_p = binary_tree_is_perfect(tree->left);
-	right_p = binary_tree_is_perfect(tree->right);
+	if (ld != rd)
+		return (0);
 
-	/* Implement return logic 
-	 * if left_p not null and right_p not null
-	 * could be perfect if subtree also not null
-	 * and depth of left_p equals depth of right_p
-	 * else return 0
-	 * */
-	return (0);
+	if (binary_tree_is_perfect(tree->left) == 0 ||
+			binary_tree_is_perfect(tree->right) == 0)
+		return (0);
+	return (1);
 }
-
+/**
+ * depth - measure depth of tree
+ * @tree: tree to measure
+ * Return: int depth
+ */
 int depth(const binary_tree_t *tree)
 {
 	int dl, dr;
